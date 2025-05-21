@@ -158,6 +158,10 @@ Contributors
 
   - hugues de keyzer
 
+- `Binhex <https://binhex.cloud>`__:
+
+  - Antonio Ruban <a.ruban@binhex.com>
+
 Other credits
 -------------
 
