@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,13 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: bi_view_editor
-#. odoo-javascript
-#: code:addons/bi_view_editor/static/src/components/bi_view_editor/field_list.xml:0
-#, python-format
-msgid "#{props.field.model_name} (#{props.field.model})"
-msgstr ""
 
 #. module: bi_view_editor
 #. odoo-python
@@ -32,24 +25,10 @@ msgid ""
 msgstr ""
 
 #. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
-msgid "%s (copy)"
-msgstr ""
-
-#. module: bi_view_editor
 #. odoo-javascript
 #: code:addons/bi_view_editor/static/src/components/bi_view_editor/field_list.xml:0
 #, python-format
 msgid "(join left)"
-msgstr ""
-
-#. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
-msgid "Abstract models not supported."
 msgstr ""
 
 #. module: bi_view_editor
@@ -67,13 +46,6 @@ msgstr ""
 #. module: bi_view_editor
 #: model:ir.model.fields.selection,name:bi_view_editor.selection__bve_view_line__list_attr__avg
 msgid "Average"
-msgstr ""
-
-#. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
-msgid "BI View"
 msgstr ""
 
 #. module: bi_view_editor
@@ -253,13 +225,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/bi_view_editor/models/bve_view.py:0
 #, python-format
-msgid "Following fields are missing: %(missing_fields)s."
-msgstr ""
-
-#. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
 msgid ""
 "Following models are missing: %s.\n"
 "Probably some modules were uninstalled."
@@ -287,13 +252,6 @@ msgid "In List"
 msgstr ""
 
 #. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
-msgid "Inconsistent lines."
-msgstr ""
-
-#. module: bi_view_editor
 #. odoo-javascript
 #: code:addons/bi_view_editor/static/src/components/bi_view_editor/field_list.xml:0
 #, python-format
@@ -315,12 +273,6 @@ msgstr ""
 #: code:addons/bi_view_editor/static/src/components/bi_view_editor/join_node_dialog.esm.js:0
 #, python-format
 msgid "Join..."
-msgstr ""
-
-#. module: bi_view_editor
-#: model:ir.model.fields,field_description:bi_view_editor.field_bve_view____last_update
-#: model:ir.model.fields,field_description:bi_view_editor.field_bve_view_line____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: bi_view_editor
@@ -566,13 +518,6 @@ msgstr ""
 #. module: bi_view_editor
 #: model:ir.model.fields,field_description:bi_view_editor.field_bve_view_line__view_field_type
 msgid "View Field Type"
-msgstr ""
-
-#. module: bi_view_editor
-#. odoo-python
-#: code:addons/bi_view_editor/models/bve_view.py:0
-#, python-format
-msgid "You cannot delete a created view! Reset the view to draft first."
 msgstr ""
 
 #. module: bi_view_editor
