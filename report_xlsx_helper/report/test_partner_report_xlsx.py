@@ -41,7 +41,7 @@ class TestPartnerXlsx(models.AbstractModel):
             "ws_name": "Partners",
             "generate_ws_method": "_partner_report",
             "title": "Partners",
-            "wanted_list": [k for k in partner_template],
+            "wanted_list": list(partner_template),
             "col_specs": partner_template,
         }
 
