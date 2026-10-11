@@ -1,8 +1,8 @@
 import {Dialog} from "@web/core/dialog/dialog";
 import {download} from "@web/core/network/download";
 import {registry} from "@web/core/registry";
-import {useRef} from "@odoo/owl";
 import {user} from "@web/core/user";
+import {useRef} from "@web/owl2/utils";
 
 const {Component} = owl;
 
