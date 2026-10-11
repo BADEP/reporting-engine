@@ -68,6 +68,6 @@ class TestXmlReport(common.HttpCase):
                 "data": json.dumps(
                     ["/report/xml/report_xml.demo_report_xml_view/1", "qweb-xml"]
                 ),
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": http.requestlib.Request.csrf_token(self),
             },
         )

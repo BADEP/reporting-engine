@@ -7,6 +7,7 @@ from lxml import etree
 
 from odoo import api, models
 from odoo.exceptions import ValidationError
+from odoo.tools.binary import BinaryValue
 
 
 class ReportXmlAbstract(models.AbstractModel):
@@ -82,7 +83,8 @@ class ReportXmlAbstract(models.AbstractModel):
         ("XSD Validation Schema") of `ir.actions.report` via `etree` lib.
 
         Args:
-         * xsd_schema_doc(byte-string) - report validation schema
+         * xsd_schema_doc(BinaryValue or base64 byte-string) - report validation
+           schema
          * content(str) - report content for validation
 
         Raises:
@@ -93,7 +95,11 @@ class ReportXmlAbstract(models.AbstractModel):
         """
         if xsd_schema_doc:
             # create validation parser
-            decoded_xsd_schema_doc = b64decode(xsd_schema_doc)
+            if isinstance(xsd_schema_doc, BinaryValue):
+                # Odoo 20: binary fields hold the raw content, not base64
+                decoded_xsd_schema_doc = xsd_schema_doc.content
+            else:
+                decoded_xsd_schema_doc = b64decode(xsd_schema_doc)
             parsed_xsd_schema = etree.XML(decoded_xsd_schema_doc)
             xsd_schema = etree.XMLSchema(parsed_xsd_schema)
             parser = etree.XMLParser(schema=xsd_schema)
