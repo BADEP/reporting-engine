@@ -40,7 +40,6 @@ class TestReport(common.TransactionCase):
                 "name": "Print to CSV",
                 "report_name": self.report_name,
                 "model": "res.partner",
-                "report_file": "res_partner",
                 "report_type": "csv",
             }
         )
@@ -58,15 +57,13 @@ class TestReport(common.TransactionCase):
     def test_attachment_use(self):
         self.report.attachment = "object.name+'.csv'"
         self.report.attachment_use = True
-        rep = self.report_object._render(self.report_name, self.docs.ids, {})
+        rep = self.report_object._render(self.report, self.docs.ids, {})
         attachment = self.env["ir.attachment"].search(
             [("name", "=", self.docs.name + ".csv")]
         )
         self.assertTrue(attachment)
         self.assertEqual(attachment.raw.decode(), rep[0])
-        rep_from_attachment = self.report_object._render(
-            self.report_name, self.docs.ids, {}
-        )
+        rep_from_attachment = self.report_object._render(self.report, self.docs.ids, {})
         self.assertTupleEqual(rep, rep_from_attachment)
 
     def test_id_retrieval(self):
@@ -128,7 +125,6 @@ class TestCsvReport(common.HttpCase):
                 "name": "Print to CSV",
                 "report_name": self.report_name,
                 "model": "res.partner",
-                "report_file": "res_partner",
                 "report_type": "csv",
             }
         )
@@ -161,6 +157,6 @@ class TestCsvReport(common.HttpCase):
             url="/report/download",
             data={
                 "data": json.dumps([suffix, f_type]),
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": http.requestlib.Request.csrf_token(self),
             },
         )

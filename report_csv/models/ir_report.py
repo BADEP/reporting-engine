@@ -31,6 +31,9 @@ class ReportAction(models.Model):
         if not attachment_name:
             return
         if record and data:
+            if isinstance(data, str):
+                # Binary fields interpret str values as base64 in 20.0
+                data = data.encode()
             attachment = {
                 "name": attachment_name,
                 "raw": data,
