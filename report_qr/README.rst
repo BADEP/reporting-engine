@@ -20,14 +20,14 @@ Web QR Manager
 .. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Freporting--engine__report_qr-lightgray.png?logo=github
-    :target: https://github.com/OCA/reporting-engine__report_qr/tree/20.0/report_qr
-    :alt: OCA/reporting-engine__report_qr
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Freporting--engine-lightgray.png?logo=github
+    :target: https://github.com/OCA/reporting-engine/tree/20.0/report_qr
+    :alt: OCA/reporting-engine
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/reporting-engine__report_qr-20-0/reporting-engine__report_qr-20-0-report_qr
+    :target: https://translation.odoo-community.org/projects/reporting-engine-20-0/reporting-engine-20-0-report_qr
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine__report_qr&target_branch=20.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine&target_branch=20.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -37,11 +37,11 @@ odoo.
 
 The original image looks like the following
 
-.. image:: https://raw.githubusercontent.com/OCA/reporting-engine__report_qr/20.0/report_qr/static/description/old_qr.png
+.. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/report_qr/static/description/old_qr.png
 
 With the new generator, it looks like:
 
-.. image:: https://raw.githubusercontent.com/OCA/reporting-engine__report_qr/20.0/report_qr/static/description/new_qr.png
+.. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/report_qr/static/description/new_qr.png
 
 **Table of contents**
 
@@ -81,10 +81,10 @@ painting color of the QR, when using the default image factory.
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/reporting-engine__report_qr/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/reporting-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/reporting-engine__report_qr/issues/new?body=module:%20report_qr%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/reporting-engine/issues/new?body=module:%20report_qr%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -117,6 +117,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/reporting-engine__report_qr <https://github.com/OCA/reporting-engine__report_qr/tree/20.0/report_qr>`_ project on GitHub.
+This module is part of the `OCA/reporting-engine <https://github.com/OCA/reporting-engine/tree/20.0/report_qr>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
