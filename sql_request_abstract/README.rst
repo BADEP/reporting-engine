@@ -21,13 +21,13 @@ SQL Request Abstract
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Freporting--engine-lightgray.png?logo=github
-    :target: https://github.com/OCA/reporting-engine/tree/19.0/sql_request_abstract
+    :target: https://github.com/OCA/reporting-engine/tree/20.0/sql_request_abstract
     :alt: OCA/reporting-engine
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/reporting-engine-19-0/reporting-engine-19-0-sql_request_abstract
+    :target: https://translation.odoo-community.org/projects/reporting-engine-20-0/reporting-engine-20-0-sql_request_abstract
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine&target_branch=19.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine&target_branch=20.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -39,22 +39,22 @@ implementation in the 'sql_export' module. (same repository).
 Implemented features
 --------------------
 
-- Add some restrictions in the sql request:
+-  Add some restrictions in the sql request:
 
-  - you can only read datas. No update, deletion or creation are
-    possible.
-  - some tables are not allowed, because they could contains clear
-    password or keys. For the time being ('ir_config_parameter').
+   -  you can only read datas. No update, deletion or creation are
+      possible.
+   -  some tables are not allowed, because they could contains clear
+      password or keys. For the time being ('ir_config_parameter').
 
-- The request can be in a 'draft' or a 'SQL Valid' status. To be valid,
-  the request has to be cleaned, checked and tested. All of this
-  operations can be disabled in the inherited modules.
+-  The request can be in a 'draft' or a 'SQL Valid' status. To be valid,
+   the request has to be cleaned, checked and tested. All of this
+   operations can be disabled in the inherited modules.
 
-- This module adds two new groups:
+-  This module adds two new groups:
 
-  - SQL Request / User : Can see all the sql requests by default and
-    execute them, if they are valid.
-  - SQL Request / Manager : has full access on sql requests.
+   -  SQL Request / User : Can see all the sql requests by default and
+      execute them, if they are valid.
+   -  SQL Request / Manager : has full access on sql requests.
 
 **Table of contents**
 
@@ -107,7 +107,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/reporting-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/reporting-engine/issues/new?body=module:%20sql_request_abstract%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/reporting-engine/issues/new?body=module:%20sql_request_abstract%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -123,12 +123,12 @@ Authors
 Contributors
 ------------
 
-- Florian da Costa <florian.dacosta@akretion.com>
-- Sylvain LE GAL (https://twitter.com/legalsylvain)
-- Alfadil Tabar (alfadil.tabar@gmail.com)
-- Helly kapatel <helly.kapatel@initos.com>
-- Nguyen Minh Chien <chien@trobz.com>
-- Vo Hong Thien <thienvh@trobz.com>
+-  Florian da Costa <florian.dacosta@akretion.com>
+-  Sylvain LE GAL (https://twitter.com/legalsylvain)
+-  Alfadil Tabar (alfadil.tabar@gmail.com)
+-  Helly kapatel <helly.kapatel@initos.com>
+-  Nguyen Minh Chien <chien@trobz.com>
+-  Vo Hong Thien <thienvh@trobz.com>
 
 Maintainers
 -----------
@@ -151,6 +151,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/reporting-engine <https://github.com/OCA/reporting-engine/tree/19.0/sql_request_abstract>`_ project on GitHub.
+This module is part of the `OCA/reporting-engine <https://github.com/OCA/reporting-engine/tree/20.0/sql_request_abstract>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

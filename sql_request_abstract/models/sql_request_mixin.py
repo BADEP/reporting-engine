@@ -6,6 +6,7 @@
 import base64
 import logging
 import re
+import typing
 import uuid
 from io import BytesIO
 
@@ -22,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 class SQLRequestMixin(models.AbstractModel):
     _name = "sql.request.mixin"
-    _inherit = ["mail.thread"]
+    _inherit: typing.ClassVar[list[str]] = ["mail.thread"]
 
     _description = "SQL Request Mixin"
 
@@ -36,9 +37,12 @@ class SQLRequestMixin(models.AbstractModel):
 
     _sql_request_users_relation = False
 
-    STATE_SELECTION = [("draft", "Draft"), ("sql_valid", "SQL Valid")]
+    STATE_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
+        ("draft", "Draft"),
+        ("sql_valid", "SQL Valid"),
+    ]
 
-    PROHIBITED_WORDS = [
+    PROHIBITED_WORDS: typing.ClassVar[list[str]] = [
         "delete",
         "drop",
         "insert",
@@ -255,8 +259,7 @@ class SQLRequestMixin(models.AbstractModel):
         self.ensure_one()
         if self.use_external_database:
             return get_external_cursor()
-        else:
-            return self.env.cr
+        return self.env.cr
 
     @api.model
     def _create_savepoint(self, cr):
@@ -346,4 +349,4 @@ class SQLRequestMixin(models.AbstractModel):
     def button_preview_sql_expression(self):
         self.button_validate_sql_expression()
         res = self._execute_sql_request()
-        raise UserError("\n".join(map(lambda x: str(x), res[:100])))
+        raise UserError("\n".join(str(x) for x in res[:100]))
