@@ -16,7 +16,7 @@ class MailThread(models.AbstractModel):
         subtype_id=False,
         **kwargs,
     ):
-        template, view = self._get_source_from_ref(source_ref)
+        template, _view = self._get_source_from_ref(source_ref)
         if template and template.report_template_ids and self.ids:
             new_report_template_ids = [
                 report.get_substitution_report(self.ids).id

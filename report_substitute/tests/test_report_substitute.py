@@ -11,6 +11,9 @@ class TestReportSubstitute(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.action_report = cls.env.ref("base.ir_module_reference_print")
+        # Remove pre-existing rules (e.g. demo data) so that only the rules
+        # created by these tests apply
+        cls.action_report.action_report_substitution_rule_ids.unlink()
         cls.res_ids = cls.env.ref("base.module_base").ids
         cls.env.company.external_report_layout_id = cls.env.ref(
             "web.external_layout_standard"
@@ -60,7 +63,6 @@ class TestReportSubstitute(TransactionCase):
                 "model": "ir.module.module",
                 "report_type": "qweb-pdf",
                 "report_name": "report_substitute.substitution_report_test",
-                "report_file": "report_substitute.substitution_report_test",
                 "binding_type": "report",
             }
         )
@@ -70,7 +72,6 @@ class TestReportSubstitute(TransactionCase):
                 "model": "ir.module.module",
                 "report_type": "qweb-pdf",
                 "report_name": "report_substitute.substitution_report_2_test",
-                "report_file": "report_substitute.substitution_report_2_test",
                 "binding_type": "report",
             }
         )

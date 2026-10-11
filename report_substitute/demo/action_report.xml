@@ -8,7 +8,6 @@
         <field name="model">ir.module.module</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">report_substitute.substitution_report</field>
-        <field name="report_file">report_substitute.substitution_report</field>
         <field name="binding_type">report</field>
     </record>
     <record id="substitution_rule_demo_1" model="ir.actions.report.substitution.rule">
@@ -26,7 +25,6 @@
         <field name="model">ir.module.module</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">report_substitute.substitution_report_2</field>
-        <field name="report_file">report_substitute.substitution_report_2</field>
         <field name="binding_type">report</field>
     </record>
 </odoo>

@@ -3,17 +3,15 @@
 
 {
     "name": "Report Substitute",
-    "summary": """
-        This module allows to create substitution rules for report actions.
-        """,
-    "version": "19.0.1.0.0",
+    "summary": "This module allows to create substitution rules for report actions.",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/reporting-engine",
     "depends": ["base", "mail"],
     "data": [
-        "security/ir_actions_report_substitution_rule.xml",
         "views/ir_actions_report.xml",
+        "security/ir.access.csv",
     ],
     "demo": ["demo/action_report.xml"],
     "assets": {
