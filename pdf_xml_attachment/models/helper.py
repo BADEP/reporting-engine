@@ -40,8 +40,8 @@ class PDFHelper(models.AbstractModel):
         with io.BytesIO(pdf_content) as reader_buffer, io.BytesIO() as new_pdf_stream:
             reader = OdooPdfFileReader(reader_buffer, strict=False)
             writer = OdooPdfFileWriter()
-            writer.cloneReaderDocumentRoot(reader)
-            writer.addAttachment(xml_filename, xml_string, subtype="text/xml")
+            writer.clone_reader_document_root(reader)
+            writer.add_attachment(xml_filename, xml_string, subtype="text/xml")
             # show attachments when opening PDF
             writer._root_object.update(
                 {NameObject("/PageMode"): NameObject("/UseAttachments")}

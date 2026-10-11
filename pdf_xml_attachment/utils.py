@@ -30,10 +30,10 @@ class PDFParser:
             pdf_reader = OdooPdfFileReader(buffer, strict=False)
 
             # Process embedded files.
-            for xml_name, content in pdf_reader.getAttachments():
+            for xml_name, content in pdf_reader.get_attachments():
                 try:
                     res[xml_name] = etree.fromstring(content)
-                except Exception:
+                except (etree.XMLSyntaxError, ValueError):
                     _logger.debug("Non XML file found in PDF")
             if res:
                 _logger.debug("Valid XML files found in PDF: %s", list(res.keys()))

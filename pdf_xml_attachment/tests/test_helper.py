@@ -21,7 +21,7 @@ class TestPDFHelperUtils(TestCase):
     def test_parse_xml(self):
         pdf_content = read_test_file("pdf_with_xml_test.pdf", mode="rb")
         res = PDFParser(pdf_content).get_xml_files()
-        fname, xml_root = tuple(res.items())[0]
+        fname, xml_root = next(iter(res.items()))
         self.assertEqual(fname, "factur-x.xml")
         self.assertTrue(isinstance(xml_root, etree._Element))
 
@@ -30,7 +30,7 @@ class TestPDFHelper(TransactionCase):
     def test_get_xml(self):
         pdf_content = read_test_file("pdf_with_xml_test.pdf", mode="rb")
         res = self.env["pdf.xml.tool"].pdf_get_xml_files(pdf_content)
-        fname, xml_root = tuple(res.items())[0]
+        fname, xml_root = next(iter(res.items()))
         self.assertEqual(fname, "factur-x.xml")
         self.assertTrue(isinstance(xml_root, etree._Element))
 
