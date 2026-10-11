@@ -1,0 +1,16 @@
+id,name,model_id,group_id/id,operation,domain
+access_kpi_user,kpi.user,kpi,base.group_user,r,
+access_kpi_manager,kpi.manager,kpi,kpi.group_kpi_manager,crud,
+kpi_rule,kpi multi-company,kpi,,crud,"['|',('company_id','=',False),('company_id', 'in', company_ids)]"
+access_kpi_history_user,kpi.history.user,kpi.history,base.group_user,r,
+access_kpi_history_manager,kpi.history.user,kpi.history,kpi.group_kpi_manager,crud,
+kpi_history_rule,kpi_history multi-company,kpi.history,,crud,"['|',('company_id','=',False),('company_id', 'in', company_ids)]"
+access_kpi_category_user,kpi.category.user,kpi.category,base.group_user,r,
+access_kpi_category_manager,kpi.category.manager,kpi.category,kpi.group_kpi_manager,crud,
+access_kpi_threshold_user,kpi.threshold.user,kpi.threshold,base.group_user,r,
+access_kpi_threshold_manager,kpi.threshold.manager,kpi.threshold,kpi.group_kpi_manager,crud,
+kpi_threshold_rule,kpi_threshold multi-company,kpi.threshold,,crud,"['|',('company_id','=',False),('company_id', 'in', company_ids)]"
+access_kpi_threshold_range_user,kpi.threshold.range.user,kpi.threshold.range,base.group_user,r,
+access_kpi_threshold_range_manager,kpi.threshold.range.manager,kpi.threshold.range,kpi.group_kpi_manager,crud,
+kpi_threshold_range_rule,kpi_threshold_range multi-company,kpi.threshold.range,,crud,"['|',('company_id','=',False),('company_id', 'in', company_ids)]"
+access_base_external_dbsource_manager,base.external.dbsource.manager,base.external.dbsource,base.group_user,crud,
