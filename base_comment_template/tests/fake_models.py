@@ -3,14 +3,16 @@
 # Copyright 2018 Camptocamp
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
+import typing
+
 from odoo import fields, models
 
 
 class TestResUsers(models.Model):
     _name = "test.res.users"
     _description = "Test User"
-    _inherits = {"res.partner": "partner_id"}
-    _inherit = ["comment.template"]
+    _inherits: typing.ClassVar[dict[str, str]] = {"res.partner": "partner_id"}
+    _inherit: typing.ClassVar[list[str]] = ["comment.template"]
 
     partner_id = fields.Many2one(
         "res.partner",
