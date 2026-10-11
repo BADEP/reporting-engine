@@ -1,15 +1,20 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+import base64
+
 from markupsafe import Markup
 
 from odoo import Command
 from odoo.exceptions import ValidationError
+from odoo.tools.binary import BinaryBytes
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestReportPositionedImage(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -23,10 +28,12 @@ class TestReportPositionedImage(BaseCommon):
                 "report_name": "test_report",
             }
         )
-        # Create a simple 1x1 transparent PNG for testing (base64-encoded)
-        cls.test_image = (
-            b"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhg"
-            b"GAWjR9awAAAABJRU5ErkJggg=="
+        # Create a simple 1x1 transparent PNG for testing
+        cls.test_image = BinaryBytes(
+            base64.b64decode(
+                b"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhg"
+                b"GAWjR9awAAAABJRU5ErkJggg=="
+            )
         )
         cls.image_a = cls.env["report.positioned.image"].create(
             {

@@ -1,7 +1,6 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import base64
 from io import BytesIO
 
 from PIL import Image
@@ -58,9 +57,9 @@ class ReportPositionedImage(models.Model):
         if not self.image:
             return None
         try:
-            img = Image.open(BytesIO(base64.b64decode(self.image)))
+            img = Image.open(BytesIO(self.image.content))
             return img.width / img.height
-        except Exception:
+        except (OSError, ValueError, ZeroDivisionError):
             return None
 
     @api.onchange("image")
@@ -105,7 +104,7 @@ class ReportPositionedImage(models.Model):
         """Prevent assigning to a different company when created from company form."""
         default_company_id = self.env.context.get("default_company_id")
         if not default_company_id:
-            return
+            return None
         if self.company_id and self.company_id.id != default_company_id:
             self.company_id = default_company_id
             return {
@@ -118,3 +117,4 @@ class ReportPositionedImage(models.Model):
                     ),
                 }
             }
+        return None
