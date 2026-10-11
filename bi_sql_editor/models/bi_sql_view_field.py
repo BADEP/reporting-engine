@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import re
+import typing
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError
@@ -13,7 +14,7 @@ class BiSQLViewField(models.Model):
     _description = "Bi SQL View Field"
     _order = "sequence"
 
-    _TTYPE_SELECTION = [
+    _TTYPE_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
         ("boolean", "boolean"),
         ("char", "char"),
         ("date", "date"),
@@ -24,13 +25,13 @@ class BiSQLViewField(models.Model):
         ("selection", "selection"),
     ]
 
-    _GRAPH_TYPE_SELECTION = [
+    _GRAPH_TYPE_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
         ("col", "Column"),
         ("row", "Row"),
         ("measure", "Measure"),
     ]
 
-    _TREE_VISIBILITY_SELECTION = [
+    _TREE_VISIBILITY_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
         ("unavailable", "Unavailable"),
         ("invisible", "Invisible"),
         ("optional_hide", "Optional (hidden)"),
@@ -39,7 +40,7 @@ class BiSQLViewField(models.Model):
     ]
 
     # Mapping to guess Odoo field type, from SQL column type
-    _SQL_MAPPING = {
+    _SQL_MAPPING: typing.ClassVar[dict[str, str]] = {
         "boolean": "boolean",
         "bigint": "integer",
         "integer": "integer",
@@ -51,7 +52,7 @@ class BiSQLViewField(models.Model):
         "timestamp without time zone": "datetime",
     }
 
-    _GROUP_OPERATOR_SELECTION = [
+    _GROUP_OPERATOR_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
         ("sum", "Sum"),
         ("avg", "Average"),
         ("min", "Minimum"),
