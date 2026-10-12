@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+rule_report_async_access_all,Report Async by Groups,report.async,base.group_no_one,crud,
+access_print_report_wizard,print.report.wizard,print.report.wizard,base.group_user,crud,
