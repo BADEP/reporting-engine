@@ -106,7 +106,7 @@ class IrActionsReport(models.Model):
         lo_bin = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param(PY3O_CONVERSION_COMMAND_PARAMETER, "libreoffice")
+            .get_str(PY3O_CONVERSION_COMMAND_PARAMETER, "libreoffice")
         )
         try:
             lo_bin = find_in_path(lo_bin)

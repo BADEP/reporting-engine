@@ -244,7 +244,7 @@ class TestReportPy3o(TransactionCase):
         self.assertFalse(self.report.msg_py3o_report_not_available)
 
         # specify a wrong lo bin path
-        self.env["ir.config_parameter"].set_param(
+        self.env["ir.config_parameter"].set_str(
             PY3O_CONVERSION_COMMAND_PARAMETER, "/wrong_path"
         )
         self.report.invalidate_recordset()
@@ -265,7 +265,7 @@ class TestReportPy3o(TransactionCase):
             self.report._render(self.report.id, self.env.user.ids)
 
         # if we reset the wrong path, everything should work
-        self.env["ir.config_parameter"].set_param(
+        self.env["ir.config_parameter"].set_str(
             PY3O_CONVERSION_COMMAND_PARAMETER, "libreoffice"
         )
         self.report.invalidate_recordset()
