@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_report_positioned_image_user,report.positioned.image user,report.positioned.image,base.group_user,r,
+access_report_positioned_image_manager,report.positioned.image manager,report.positioned.image,base.group_system,crud,
+report_positioned_image_company_rule,Report Positioned Image: multi-company,report.positioned.image,,crud,"[
+            '|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids)
+        ]"
