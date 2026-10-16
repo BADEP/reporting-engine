@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+action_report_substitution_rule_user_access,action.report.substitution.rule user access,ir.actions.report.substitution.rule,base.group_everyone,r,
+action_report_substitution_rule_manager_access,action.report.substitution.rule manager access,ir.actions.report.substitution.rule,base.group_system,crud,
