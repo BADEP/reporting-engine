@@ -252,14 +252,14 @@ class BveView(models.Model):
                 "model": self.model_name,
                 "priority": 16,
                 "arch": """<?xml version="1.0"?>
-                       <tree create="false">
+                       <list create="false">
                        {}
-                       </tree>
+                       </list>
                     """.format("".join(self._create_tree_view_arch())),
             }
         )
 
-        # set the Tree view as the default one
+        # set the List view as the default one
         action = (
             self.env["ir.actions.act_window"]
             .sudo()
@@ -268,7 +268,7 @@ class BveView(models.Model):
                     "name": self.name,
                     "res_model": self.model_name,
                     "type": "ir.actions.act_window",
-                    "view_mode": "tree,graph,pivot",
+                    "view_mode": "list,graph,pivot",
                     "view_id": tree_view.id,
                     "context": f"{{'service_name': '{self.name}'}}",
                 }
@@ -314,7 +314,7 @@ class BveView(models.Model):
         query = self.query and self.query.replace("\n", " ")
 
         # robustness in case something went wrong
-        self._cr.execute("DROP TABLE IF EXISTS %s", (AsIs(view_name),))
+        self.env.cr.execute("DROP TABLE IF EXISTS %s", (AsIs(view_name),))
 
         # create postgres view
         try:
@@ -529,7 +529,7 @@ class BveView(models.Model):
     def unlink(self):
         if self.filtered(lambda v: v.state == "created"):
             raise UserError(
-                _("You cannot delete a created view! " "Reset the view to draft first.")
+                _("You cannot delete a created view! Reset the view to draft first.")
             )
         return super().unlink()
 
@@ -604,9 +604,10 @@ class BveView(models.Model):
 
         for item in serialized_data:
             if item.get("join_node", -1) not in [-1, False]:
-                if item["table_alias"] not in table_alias_list:
-                    serialized_data.remove(item)
-                elif item["join_node"] not in table_alias_list:
+                if (
+                    item["table_alias"] not in table_alias_list
+                    or item["join_node"] not in table_alias_list
+                ):
                     serialized_data.remove(item)
 
         return json.dumps(serialized_data)

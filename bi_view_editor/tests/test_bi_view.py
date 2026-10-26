@@ -307,7 +307,7 @@ class TestBiViewEditor(TransactionCase):
         new_data = self.env["bve.view"].get_clean_list(old_data)
         new_data_dict = json.loads(new_data)
         self.assertEqual(len(new_data_dict), 1)
-        for key in data_dict1.keys():
+        for key in data_dict1:
             self.assertEqual(new_data_dict[0][key], data_dict1[key])
 
     def test_12_check_groups(self):
