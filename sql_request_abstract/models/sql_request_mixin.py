@@ -6,7 +6,6 @@
 import base64
 import logging
 import re
-import typing
 import uuid
 from io import BytesIO
 
@@ -23,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class SQLRequestMixin(models.AbstractModel):
     _name = "sql.request.mixin"
-    _inherit: typing.ClassVar[list[str]] = ["mail.thread"]
+    _inherit = ["mail.thread"]  # noqa: RUF012
 
     _description = "SQL Request Mixin"
 
@@ -37,12 +36,12 @@ class SQLRequestMixin(models.AbstractModel):
 
     _sql_request_users_relation = False
 
-    STATE_SELECTION: typing.ClassVar[list[tuple[str, str]]] = [
+    STATE_SELECTION = [  # noqa: RUF012
         ("draft", "Draft"),
         ("sql_valid", "SQL Valid"),
     ]
 
-    PROHIBITED_WORDS: typing.ClassVar[list[str]] = [
+    PROHIBITED_WORDS = [  # noqa: RUF012
         "delete",
         "drop",
         "insert",
