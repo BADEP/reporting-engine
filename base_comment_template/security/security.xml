@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.rule" id="rule_multicompany">
+    <record id="rule_multicompany" model="ir.rule">
         <field name="name">Base comment multi-company</field>
         <field name="model_id" ref="model_base_comment_template" />
         <field name="global" eval="True" />
