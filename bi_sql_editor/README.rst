@@ -21,13 +21,13 @@ BI SQL Editor
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Freporting--engine-lightgray.png?logo=github
-    :target: https://github.com/OCA/reporting-engine/tree/19.0/bi_sql_editor
+    :target: https://github.com/OCA/reporting-engine/tree/20.0/bi_sql_editor
     :alt: OCA/reporting-engine
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/reporting-engine-19-0/reporting-engine-19-0-bi_sql_editor
+    :target: https://translation.odoo-community.org/projects/reporting-engine-20-0/reporting-engine-20-0-bi_sql_editor
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine&target_branch=19.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/reporting-engine&target_branch=20.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -65,17 +65,17 @@ Use Cases
 
 this module is interesting for the following use cases
 
-- You want to realize technical SQL requests, that Odoo framework
-  doesn't allow (For exemple, UNION with many SELECT) A typical use case
-  is if you want to have Sale Orders and PoS Orders datas in a same
-  table
-- You want to customize an Odoo report, removing some useless fields and
-  adding some custom ones. In that case, you can simply select the
-  fields of the original report (sale.report model for exemple), and add
-  your custom fields
-- You have a lot of data, and classical SQL Views have very bad
-  performance. In that case, MATERIALIZED VIEW will be a good solution
-  to reduce display duration
+-  You want to realize technical SQL requests, that Odoo framework
+   doesn't allow (For exemple, UNION with many SELECT) A typical use
+   case is if you want to have Sale Orders and PoS Orders datas in a
+   same table
+-  You want to customize an Odoo report, removing some useless fields
+   and adding some custom ones. In that case, you can simply select the
+   fields of the original report (sale.report model for exemple), and
+   add your custom fields
+-  You have a lot of data, and classical SQL Views have very bad
+   performance. In that case, MATERIALIZED VIEW will be a good solution
+   to reduce display duration
 
 **Table of contents**
 
@@ -85,15 +85,15 @@ this module is interesting for the following use cases
 Configuration
 =============
 
-- Go to Dashboard / Configuration / SQL Views
+-  Go to Dashboard / Configuration / SQL Views
 
-- tip your SQL request
+-  tip your SQL request
 
-  |image1|
+   .. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/bi_sql_editor/static/description/01_sql_request.png
 
-- Select the group(s) that could have access to the view
+-  Select the group(s) that could have access to the view
 
-  |image2|
+   .. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/bi_sql_editor/static/description/02_security_access.png
 
 Optionnaly, you can add a domain.
 
@@ -101,41 +101,36 @@ A tipical domain in a multi company context is to write
 ``['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]``
 to make reporting depending on the current companies of the user.
 
-- Click on the button 'Validate SQL Expression'
+-  Click on the button 'Validate SQL Expression'
 
-- Once the sql request checked, the module analyses the column of the
-  view, and propose field mapping. For each field, you can decide to
-  create an index and set if it will be displayed on the pivot graph as
-  a column, a row or a measure. On top of that, if the field is of type
-  Many2one, you can also select the option to be clickable on the list
-  view.
+-  Once the sql request checked, the module analyses the column of the
+   view, and propose field mapping. For each field, you can decide to
+   create an index and set if it will be displayed on the pivot graph as
+   a column, a row or a measure. On top of that, if the field is of type
+   Many2one, you can also select the option to be clickable on the list
+   view.
 
-  |image3|
+   .. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/bi_sql_editor/static/description/03_field_mapping.png
 
-- Click on the button 'Create SQL elements'. (this step could take a
-  while, if view is materialized)
+-  Click on the button 'Create SQL elements'. (this step could take a
+   while, if view is materialized)
 
-- If it's a MATERIALIZED view:
+-  If it's a MATERIALIZED view:
 
-     - a cron task is created to refresh the view. You can so define the
-       frequency of the refresh.
-     - the size of view (and the indexes is displayed)
+      -  a cron task is created to refresh the view. You can so define
+         the frequency of the refresh.
+      -  the size of view (and the indexes is displayed)
 
-  |image4|
+   .. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/bi_sql_editor/static/description/04_materialized_view_setting.png
 
-- Before applying the final step, you will need to add a specific Parent
-  Menu to use when creating the UI Menu for the report. By default, it
-  will be set with the ``SQL Views`` menu, which can be changed before
-  creating the UI elements in order to have the report accessible from a
-  different place within Odoo.
+-  Before applying the final step, you will need to add a specific
+   Parent Menu to use when creating the UI Menu for the report. By
+   default, it will be set with the ``SQL Views`` menu, which can be
+   changed before creating the UI elements in order to have the report
+   accessible from a different place within Odoo.
 
-- Finally, click on 'Create UI', to create new menu, action, graph view
-  and search view.
-
-.. |image1| image:: https://raw.githubusercontent.com/OCA/reporting-engine/19.0/bi_sql_editor/static/description/01_sql_request.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/reporting-engine/19.0/bi_sql_editor/static/description/02_security_access.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/reporting-engine/19.0/bi_sql_editor/static/description/03_field_mapping.png
-.. |image4| image:: https://raw.githubusercontent.com/OCA/reporting-engine/19.0/bi_sql_editor/static/description/04_materialized_view_setting.png
+-  Finally, click on 'Create UI', to create new menu, action, graph view
+   and search view.
 
 Usage
 =====
@@ -147,11 +142,10 @@ To use this module, you need to:
 
 ..
 
-   |usage-image1|
+   .. image:: https://raw.githubusercontent.com/OCA/reporting-engine/20.0/bi_sql_editor/static/description/05_reporting_pivot.png
+      :alt: usage-image1
 
-- You can switch to 'Graph' or 'tree' views as any report.
-
-.. |usage-image1| image:: https://raw.githubusercontent.com/OCA/reporting-engine/19.0/bi_sql_editor/static/description/05_reporting_pivot.png
+-  You can switch to 'Graph' or 'tree' views as any report.
 
 Bug Tracker
 ===========
@@ -159,7 +153,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/reporting-engine/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/reporting-engine/issues/new?body=module:%20bi_sql_editor%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/reporting-engine/issues/new?body=module:%20bi_sql_editor%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -174,36 +168,30 @@ Authors
 Contributors
 ------------
 
-- Sylvain LE GAL (https://twitter.com/legalsylvain)
+-  Sylvain LE GAL (https://twitter.com/legalsylvain)
 
-- Richard deMeester, WilldooIT (http://www.willdooit.com/)
+-  Richard deMeester, WilldooIT (http://www.willdooit.com/)
 
-- David James, WilldooIT (http://www.willdooit.com/)
+-  David James, WilldooIT (http://www.willdooit.com/)
 
-- Guillem Casassas guillem.casassas@forgeflow.com
+-  Guillem Casassas guillem.casassas@forgeflow.com
 
-- Thien Vo thienvh@trobz.com
+-  Thien Vo thienvh@trobz.com
 
-- Baptiste P. baptiste@newlogic.com
+-  Baptiste P. baptiste@newlogic.com
 
-- This module is highly inspired by the work of
+-  This module is highly inspired by the work of
 
-  - Onestein: (http://www.onestein.nl/) Module:
-    OCA/server-tools/bi_view_editor. Link:
-    https://github.com/OCA/reporting-engine/tree/9.0/bi_view_editor
-  - Anybox: (https://anybox.fr/) Module :
-    OCA/server-tools/materialized_sql_view link:
-    https://github.com/OCA/server-tools/pull/110
-  - GRAP, Groupement Régional Alimentaire de Proximité:
-    (http://www.grap.coop/) Module:
-    grap/odoo-addons-misc/pos_sale_reporting link:
-    https://github.com/grap/odoo-addons-misc/tree/7.0/pos_sale_reporting
-
-Other credits
--------------
-
-The migration of this module from 17.0 to 18.0 was financially supported
-by Camptocamp.
+   -  Onestein: (http://www.onestein.nl/) Module:
+      OCA/server-tools/bi_view_editor. Link:
+      https://github.com/OCA/reporting-engine/tree/9.0/bi_view_editor
+   -  Anybox: (https://anybox.fr/) Module :
+      OCA/server-tools/materialized_sql_view link:
+      https://github.com/OCA/server-tools/pull/110
+   -  GRAP, Groupement Régional Alimentaire de Proximité:
+      (http://www.grap.coop/) Module:
+      grap/odoo-addons-misc/pos_sale_reporting link:
+      https://github.com/grap/odoo-addons-misc/tree/7.0/pos_sale_reporting
 
 Maintainers
 -----------
@@ -226,6 +214,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/reporting-engine <https://github.com/OCA/reporting-engine/tree/19.0/bi_sql_editor>`_ project on GitHub.
+This module is part of the `OCA/reporting-engine <https://github.com/OCA/reporting-engine/tree/20.0/bi_sql_editor>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

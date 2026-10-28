@@ -13,7 +13,7 @@ class BiSQLViewField(models.Model):
     _description = "Bi SQL View Field"
     _order = "sequence"
 
-    _TTYPE_SELECTION = [
+    _TTYPE_SELECTION = [  # noqa: RUF012
         ("boolean", "boolean"),
         ("char", "char"),
         ("date", "date"),
@@ -24,13 +24,13 @@ class BiSQLViewField(models.Model):
         ("selection", "selection"),
     ]
 
-    _GRAPH_TYPE_SELECTION = [
+    _GRAPH_TYPE_SELECTION = [  # noqa: RUF012
         ("col", "Column"),
         ("row", "Row"),
         ("measure", "Measure"),
     ]
 
-    _TREE_VISIBILITY_SELECTION = [
+    _TREE_VISIBILITY_SELECTION = [  # noqa: RUF012
         ("unavailable", "Unavailable"),
         ("invisible", "Invisible"),
         ("optional_hide", "Optional (hidden)"),
@@ -39,7 +39,7 @@ class BiSQLViewField(models.Model):
     ]
 
     # Mapping to guess Odoo field type, from SQL column type
-    _SQL_MAPPING = {
+    _SQL_MAPPING = {  # noqa: RUF012
         "boolean": "boolean",
         "bigint": "integer",
         "integer": "integer",
@@ -51,7 +51,7 @@ class BiSQLViewField(models.Model):
         "timestamp without time zone": "datetime",
     }
 
-    _GROUP_OPERATOR_SELECTION = [
+    _GROUP_OPERATOR_SELECTION = [  # noqa: RUF012
         ("sum", "Sum"),
         ("avg", "Average"),
         ("min", "Minimum"),
