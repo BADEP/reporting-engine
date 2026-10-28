@@ -3,7 +3,6 @@
 
 import logging
 import re
-from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
@@ -17,33 +16,16 @@ _logger = logging.getLogger(__name__)
 
 def is_one_value(result):
     # check if sql query returns only one value
-    if (
+    return bool(
         isinstance(result, dict)
         and "value" in result.dictfetchone()
         or isinstance(result, list)
         and "value" in result[0]
-    ):
-        return True
-    else:
-        return False
+    )
 
 
 RE_SELECT_QUERY = re.compile(
-    ".*("
-    + "|".join(
-        (
-            "INSERT",
-            "UPDATE",
-            "DELETE",
-            "CREATE",
-            "ALTER",
-            "DROP",
-            "GRANT",
-            "REVOKE",
-            "INDEX",
-        )
-    )
-    + ")"
+    ".*(" + "INSERT|UPDATE|DELETE|CREATE|ALTER|DROP|GRANT|REVOKE|INDEX" + ")"
 )
 
 
@@ -57,7 +39,7 @@ class KPI(models.Model):
 
     _name = "kpi"
     _description = "Key Performance Indicator"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin"]  # noqa: RUF012
 
     name = fields.Char(required=True)
     description = fields.Text()
@@ -198,7 +180,7 @@ class KPI(models.Model):
                 delta = relativedelta(months=obj.periodicity)
             else:
                 delta = relativedelta()
-            new_date = datetime.now() + delta
+            new_date = fields.Datetime.now() + delta
 
             obj.next_execution_date = new_date.strftime(DATETIME_FORMAT)
 
@@ -214,7 +196,7 @@ class KPI(models.Model):
             (
                 "next_execution_date",
                 "<=",
-                datetime.now().strftime(DATETIME_FORMAT),
+                fields.Datetime.now().strftime(DATETIME_FORMAT),
             ),
             ("next_execution_date", "=", False),
         ]
