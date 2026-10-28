@@ -3,7 +3,6 @@
 
 import logging
 import re
-import typing
 
 from dateutil.relativedelta import relativedelta
 
@@ -40,7 +39,7 @@ class KPI(models.Model):
 
     _name = "kpi"
     _description = "Key Performance Indicator"
-    _inherit: typing.ClassVar[list[str]] = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread", "mail.activity.mixin"]  # noqa: RUF012
 
     name = fields.Char(required=True)
     description = fields.Text()
