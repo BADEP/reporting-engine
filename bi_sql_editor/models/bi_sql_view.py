@@ -3,7 +3,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import logging
-import typing
 from datetime import datetime, timedelta, timezone
 
 from psycopg2 import ProgrammingError
@@ -21,7 +20,7 @@ class BiSQLView(models.Model):
     _name = "bi.sql.view"
     _description = "BI SQL View"
     _order = "sequence"
-    _inherit: typing.ClassVar[list[str]] = ["sql.request.mixin"]
+    _inherit = ["sql.request.mixin"]  # noqa: RUF012
 
     _sql_prefix = "x_bi_sql_view_"
 
@@ -31,7 +30,7 @@ class BiSQLView(models.Model):
 
     _sql_request_users_relation = "bi_sql_view_users_rel"
 
-    _STATE_SQL_EDITOR: typing.ClassVar[list[tuple[str, str]]] = [
+    _STATE_SQL_EDITOR = [  # noqa: RUF012
         ("model_valid", "SQL View and Model Created"),
         ("ui_valid", "Views, Action and Menu Created"),
     ]
